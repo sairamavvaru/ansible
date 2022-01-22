@@ -1,0 +1,7 @@
+- name: play for variables
+  hosts: all
+  vars:
+    - URL: play.exmple.com
+      a: 100000000
+      ansible.builtin.debug:
+        msg: valu - {{URL}}
