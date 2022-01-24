@@ -40,9 +40,16 @@
       ansible.builtin.debug:
         msg: URL - {{URL}}
 
-- name: Play for command line Variables
+- name: Play for Inventory variable files
   hosts: all
   tasks:
     - name: Print URL
       ansible.builtin.debug:
         msg: URL - {{URL}}
+
+- name: Variable from facts
+  hosts: all
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: Hostname - {{ansible_fqdn}}
