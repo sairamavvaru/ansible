@@ -1,0 +1,10 @@
+- name: frontend setup
+  hosts: FRONTEND
+  tasks:
+    - frontend
+
+
+ - name: mongodb setup
+   hosts: MONGODB
+   tasks:
+     - mongodb
