@@ -15,6 +15,6 @@
     - sample-vars.yml
   tasks:
     - name: Print URL
-      ansible.builtin.debug
+      ansible.builtin.debug:
         msg: URL - {{URL}}
 
