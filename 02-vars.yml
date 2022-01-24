@@ -21,14 +21,14 @@
 - name: Play for Tasks Level Variables
   hosts: all
   tasks:
-   - name: Print URL
+   - name: Print URL1
       ansible.builtin.debug:
         msg: URL - {{URL}}
       vars:
         URL: tasks.example.com
-   - name: Print DOMAIN
+   -  name: Print URL2
       ansible.builtin.debug:
         msg: URL - {{URL}}
-        vars:
-          URL: second-task.examples.com
+      vars:
+        URL: second-task.examples.com
 
