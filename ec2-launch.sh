@@ -1,0 +1,6 @@
+#!/bin/bash
+#1. Create an instance
+#2. Take that Instance IP & register in DNS
+
+aws ec2 request-spot-instances --instance-count 1 --type "persistent" --launch-specification file://spot.json --tags-specification
+"ResourceType=spot-instance-request,Tags=[{Key=string,Value=frontend}]"

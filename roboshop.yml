@@ -1,10 +1,7 @@
 - name: frontend setup
   hosts: FRONTEND
-  tasks:
+  roles:
     - frontend
 
 
- - name: mongodb setup
-   hosts: MONGODB
-   tasks:
-     - mongodb
+

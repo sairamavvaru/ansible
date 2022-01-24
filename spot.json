@@ -1,0 +1,5 @@
+{
+  "ImageId": "ami-04656078adf4aa403",
+  "SecurityGroupIds": ["sg-01b1421a65e1ae2ef"],
+  "InstanceType": "t3.micro"
+}
