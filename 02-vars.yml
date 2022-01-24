@@ -44,5 +44,5 @@
   hosts: all
   tasks:
     - name: Print URL
-      ansible.buitin.debug:
+      ansible.builtin.debug:
         msg: URL - {{URL}}
