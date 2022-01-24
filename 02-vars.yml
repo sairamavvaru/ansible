@@ -63,4 +63,4 @@
 
     - name: Print output
       ansible.builtin.debug:
-        msg: "{{out.stout}}"
+        msg: "{{out.stdout}}"
