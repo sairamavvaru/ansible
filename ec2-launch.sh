@@ -4,7 +4,7 @@
 
 
 TEMP_ID="lt-0433da4e92eb56542"
-VER_ID=1
+VER_VER=1
 
 aws ec2 run-instances --linch-template LunchTemplateId=${TEMP_ID},Verstion=${VAR_VER}
 
