@@ -4,4 +4,10 @@
     - frontend
 
 
+- name: mongodb setup
+  hosts: MONGODB
+  tasks:
+    - mongodb
+
+
 
