@@ -1,6 +1,6 @@
 192.168.0.10
 sample.roboshop.internal
-192.168.0.[10-20]
+192.168.0.[10:20]
 
 # Institute {company} , USA(Multi regions) , INDIA  (Multi regions)
 #web, app, db
