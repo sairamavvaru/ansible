@@ -22,7 +22,7 @@ if [ $? -eq -0 ]; then
   exit
 fi
 
-aws ec2 run-instances --launch-template LaunchTemplateId=${TEMP_ID},Version=${TEMP_VER} --tag-specifications "ResourceType=spot-instances-request,Tags=[{key=Name,Value=frontend}]" "ResourceType=instance,Tages={[Key=Name,Value=frontend}]" | jq
+aws ec2 run-instances --launch-template LaunchTemplateId=${TEMP_ID},Version=${TEMP_VER} --tag-specifications "ResourceType=spot-instances-request,Tags=[{key=Name,Value=${COMPONENT}}]" "ResourceType=instance,Tages=[{Key=Name,Value=${COMPONENT}}]" | jq
 
 IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=frontend" | jq .Reservations[].Instances[].PrivateIpAddress | sed 's/"//g')
 # update the DNS record
