@@ -16,7 +16,8 @@ ZONE_ID=Z0996673224U8ZV493LEV
 
 
 ## Check if instance is already there
-aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instances[].State.Name | jq | sed  's/"//g' | grep -E 'running|stopped' &>/dev/null
+
+aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instances[].State.Name | sed  's/"//g' | grep -E 'running|stopped' &>/dev/null
 if [ $? -eq -0 ]; then
   echo -e  "\e[1;33mInstance is already there\e[0m"
   exit
