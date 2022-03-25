@@ -16,6 +16,7 @@ ZONE_ID=Z0996673224U8ZV493LEV
 
 
 ## Check if instance is already there
+CREATE_INSTANCE() {
 aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instances[].State.Name | sed  's/"//g' | grep -E 'running|stopped' &>/dev/null
 if [ $? -eq -0 ]; then
   echo -e  "\e[1;33mInstance is already there\e[0m"
@@ -30,6 +31,16 @@ IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=frontend"
 # update the DNS record
 sed -e "s/IPADDRESS/${IPADDRESS}/" -e "s/COMPONENT/${COMPONENT}/" record.json >/tmp/record.json
 aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file:///tmp/record.json | jq
+}
+
+if [ "$COMPONENT" == "all" ]; then
+  for comp in forntend mongodb catalogue ; do
+    COMPONENT=$comp
+    CREATE_INSTANCE
+   done
+else
+ CREATE_INSTANCE
+fi
 
 
 
