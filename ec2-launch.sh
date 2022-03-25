@@ -37,7 +37,7 @@ if [ "$COMPONENT" == "all" ]; then
   for comp in forntend mongodb catalogue ; do
     COMPONENT=$comp
     CREATE_INSTANCE
-   done
+  done
 else
  CREATE_INSTANCE
 fi
