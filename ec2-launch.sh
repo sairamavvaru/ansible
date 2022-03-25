@@ -12,6 +12,8 @@ COMPONENT=$1
 
 TEMP_ID="lt-0433da4e92eb56542"
 TEMP_VER=2
+ZONE_ID=Z0996673224U8ZV493LEV
+
 
 ## Check if instance is already there
 aws ec2 describe-instances --filters "Name=tag:Name,Values=${COMPONENT}" | jq .Reservations[].Instances[].State.Name | jq | sed  's/"//g' | grep -E 'running|stopped' &>/dev/null
@@ -21,4 +23,13 @@ if [ $? -eq -0 ]; then
 fi
 
 aws ec2 run-instances --launch-template LaunchTemplateId=${TEMP_ID},Version=${TEMP_VER} --tag-specifications "ResourceType=spot-instances-request,Tags=[{key=Name,Value=frontend}]" "ResourceType=instance,Tages={[Key=Name,Value=frontend}]" | jq
+
+IPADDRESS=$(aws ec2 describe-instances --filters "Name=tag:Name,Values=frontend" | jq .Reservations[].Instances[].PrivateIpAddress | sed 's/"//g')
+# update the DNS record
+sed -e "s/IPADDRESS/${IPADDRESS}/" -e "s/COMPONENT/${COMPONENT}/" record.json >/tmp/record.json
+aws route53 change-resource-record-sets --hosted-zone-id ${ZONE_ID} --change-batch file://record.json | jq
+
+
+
+
 
