@@ -1,8 +1,14 @@
-- name: frontend setup
+- name: Frontend setup
   hosts: FRONTEND
   become: yes
   roles:
     - frontend
+
+- name: Mongodb setup
+  hosts: MONGODB
+  become: yes
+  roles:
+    - mongodb
 
 
 
