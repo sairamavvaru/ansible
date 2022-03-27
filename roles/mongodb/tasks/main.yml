@@ -1,11 +1,4 @@
-# curl -s -o /etc/yum.repos.d/mongodb.repo https://raw.githubusercontent.com/roboshop-devops-project/mongodb/main/mongo.repo
-# yum install -y mongodb-org
-# systemctl enable mongod
-# systemctl start mongod
-# Update Listen IP address from 127.0.0.1 to 0.0.0.0 in config file
 
-# Config file: `/etc/mongod.conf`
-# systemctl restart mongod
 
 # curl -s -L -o /tmp/mongodb.zip "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
 
@@ -39,3 +32,20 @@
     name: mongod
     state: started
     enabled: yes
+
+
+ - name: Download MongoDB Schema files
+     ansible.builtin.import_role:
+       name: common
+       tasks_from: download
+
+- name: Load Catalogue Schema
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/catalogue.js"
+    idempotent: yes
+
+- name: Load Users Schema
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/users.js"
+    idempotent: yes
+
