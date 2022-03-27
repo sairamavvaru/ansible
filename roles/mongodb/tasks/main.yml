@@ -34,8 +34,8 @@
     enabled: yes
 
 
- - name: Download MongoDB Schema files
-     ansible.builtin.import_role:
+- name: Download MongoDB Schema files
+  ansible.builtin.import_role:
        name: common
        tasks_from: download
 
