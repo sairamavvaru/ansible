@@ -3,7 +3,7 @@
   tasks:
     - name: Catalogue
       debug:
-        msg: Hello from catalogue
+        msg: Hello from Catalogue
     - name: Frontend
       debug:
         mdg: Hello from Frontend
