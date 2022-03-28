@@ -23,7 +23,7 @@
     name: common
     tasks_from: download
 
-- name: Remote Old App Content
+- name: Remove Old App Content
   ansible.builtin.file:
     path: /home/roboshop/catalogue
     state: absent
