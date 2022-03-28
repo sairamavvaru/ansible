@@ -40,3 +40,8 @@
     path: /home/roboshop/catalogue
   become_user: roboshop
 
+- name: Update Catalogue SystemD file
+  ansuble.builtin.template:
+    src: systemd.service
+    dest: /etc/systemd/system/catalogue.service
+
