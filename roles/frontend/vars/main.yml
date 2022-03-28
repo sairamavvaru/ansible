@@ -1,1 +1,2 @@
-COMPONENT: mongodb
+COMPONENT: frontend
+ENV: null
