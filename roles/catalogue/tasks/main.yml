@@ -47,7 +47,7 @@
   become_user: roboshop
 
 - name: Install Nodesjs Dependencies.
-  community.gerneral.npm:
+  community.general.npm:
     path: /home/roboshop/catalogue
   become_user: roboshop
 
