@@ -4,6 +4,6 @@
     - name: Catalogue
       debug:
         msg: Hello from Catalogue
-    - name: Frontend
+    - name:  Frontend
       debug:
         mdg: Hello from Frontend
