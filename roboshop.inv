@@ -1,5 +1,5 @@
 [FRONTEND]
-frontend-devroboshop.internal
+frontend-dev.roboshop.internal
 [MONGODB]
 mongodb-dev.roboshop.internal
 [REDIS]
