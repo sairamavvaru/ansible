@@ -6,4 +6,4 @@
         msg: Hello from Catalogue
     - name:  Frontend
       debug:
-        mdg: Hello from Frontend
+        msg: Hello from Frontend
