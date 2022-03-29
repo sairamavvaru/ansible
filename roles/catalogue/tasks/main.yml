@@ -25,7 +25,7 @@
 
 - name: Remove Old App Content
   ansible.builtin.file:
-    path: /home/roboshop/catalogue
+    path: /usr/roboshop/catalogue
     state: absent
 
 - name: Copy App Content
