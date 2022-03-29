@@ -25,7 +25,7 @@
 
 - name: Remove Old App Content
   ansible.builtin.file:
-    paths: /home/roboshop/catalogue
+    path: /home/roboshop/catalogue
     state: absent
 
 - name: Copy App Content
@@ -37,7 +37,7 @@
 
 - name: Install NodejS Dependencies
   community.general.npm:
-    path: /home/roboshop/catalogue/
+    paths: /home/roboshop/catalogue/
   become_user: roboshop
 
 - name: Update Catalogue SystemD file
