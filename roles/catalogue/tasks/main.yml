@@ -37,7 +37,7 @@
 
 - name: Install NodejS Dependencies
   community.general.npm:
-    paths: /home/roboshop/catalogue/
+    path: /home/roboshop/catalogue/
   become_user: roboshop
 
 - name: Update Catalogue SystemD file
